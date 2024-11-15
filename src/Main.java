@@ -5,17 +5,21 @@ public class Main {
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 		int[] data = new int[5];
+		int[][] result = new int[5][5];
 		data[0] = 0;
 		for (int i=1;i<5;i++) {
 			data[i] = sc.nextInt();
 		}
 		
 		for (int i=0;i<5;i++) {
-			for (int j=0;j<5;j++) {
+			for (int j=i;j<5;j++) {
 				int distance = getDistance(i,j, data);
-				System.out.print(distance+" ");
+				result[i][j] = distance;
+				result[j][i] = distance;
 			}
-			System.out.println();
+		}
+		for (int i=0;i<5;i++) {
+			System.out.println(result[i][0]+" "+result[i][1]+" "+result[i][2]+" " + result[i][3]+" "+result[i][4]);
 		}
 		
 	}
